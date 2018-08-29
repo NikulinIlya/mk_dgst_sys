@@ -1,7 +1,7 @@
 
 ## System for extracting and analyzing information objects
 
-Providing the means for extraction, processing and storage of the necessary information from the Internet.
+Providing the means for extraction, processing and storage the useful information from the Internet.
 
 ## License
 
