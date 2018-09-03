@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParsTreePathTable extends Migration
+class CreateProjectClassifyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateParsTreePathTable extends Migration
      */
     public function up()
     {
-        Schema::create('pars_tree_path', function (Blueprint $table) {
-            $table->integer('ancestor_id');
-            $table->integer('descendant_id');
-            $table->integer('length');
-            $table->integer('classify_id');
-            $table->primary(['ancestor_id', 'descendant_id']);
+        Schema::create('project_classify', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateParsTreePathTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pars_tree_path');
+        Schema::dropIfExists('project_classify');
     }
 }

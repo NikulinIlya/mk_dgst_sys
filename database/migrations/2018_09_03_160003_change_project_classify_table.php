@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeParsTreePathTable extends Migration
+class ChangeProjectClassifyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class ChangeParsTreePathTable extends Migration
      */
     public function up()
     {
-        Schema::table('pars_tree_path', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::table('project_classify', function (Blueprint $table) {
+            $table->integer('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
+
+            $table->integer('classify_id');
             $table->foreign('classify_id')->references('id')->on('classifications');
         });
     }
@@ -27,7 +29,7 @@ class ChangeParsTreePathTable extends Migration
      */
     public function down()
     {
-        Schema::table('pars_tree_path', function (Blueprint $table) {
+        Schema::table('project_classify', function (Blueprint $table) {
             //
         });
     }
