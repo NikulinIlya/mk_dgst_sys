@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFileQueryTable extends Migration
+class CreateFileQueriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateFileQueryTable extends Migration
     {
         Schema::create('file_queries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('query', 255);
+            $table->string('query', 191);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateFileQueryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_query');
+        Schema::dropIfExists('file_queries');
     }
 }

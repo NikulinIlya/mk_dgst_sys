@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInformObjectsTable extends Migration
+class ChangeParsTreePathTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateInformObjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inform_objects', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('object');
-            $table->timestamps();
+        Schema::table('pars_tree_path', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateInformObjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inform_objects');
+        Schema::table('pars_tree_path', function (Blueprint $table) {
+            //
+        });
     }
 }

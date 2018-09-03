@@ -14,10 +14,10 @@ class CreateParsTreePathTable extends Migration
     public function up()
     {
         Schema::create('pars_tree_path', function (Blueprint $table) {
-            $table->integer('id_ancestor')->primary();
-            $table->integer('id_descendant')->primary()->default(0);
-            $table->integer('tree_level');
-            $table->integer('id_classify');
+            $table->integer('ancestor_id');
+            $table->integer('descendant_id');
+            $table->integer('length');
+            $table->primary(['ancestor_id', 'descendant_id']);
             $table->timestamps();
         });
     }

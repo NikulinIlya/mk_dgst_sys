@@ -14,7 +14,7 @@ class CreateSearchSystemsTable extends Migration
     public function up()
     {
         Schema::create('search_systems', function (Blueprint $table) {
-            $table->increments('id_search_system');
+            $table->increments('id');
             $table->string('searcher_name', 255);
             $table->string('URL', 255);
             $table->string('code', 255);
