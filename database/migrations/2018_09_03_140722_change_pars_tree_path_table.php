@@ -14,9 +14,10 @@ class ChangeParsTreePathTable extends Migration
     public function up()
     {
         Schema::table('pars_tree_path', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('project_id')->references('id')->on('projects');
-            $table->foreign('classify_id')->references('id')->on('classifications');
+            $table->integer('ancestor_id')->unsigned()->default(1);
+            $table->foreign('ancestor_id')->references('id')->on('parameters');
+            $table->integer('descendant_id')->unsigned()->default(1);
+            $table->foreign('descendant_id')->references('id')->on('parameters');
         });
     }
 

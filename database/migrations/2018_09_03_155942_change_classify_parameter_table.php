@@ -14,11 +14,11 @@ class ChangeClassifyParameterTable extends Migration
     public function up()
     {
         Schema::table('classify_parameter', function (Blueprint $table) {
-            $table->integer('classify_id');
+            $table->integer('classify_id')->unsigned()->default(1);
             $table->foreign('classify_id')->references('id')->on('classifications');
 
-            $table->integer('parameter _id');
-            $table->foreign('parameter _id')->references('id')->on('parameters');
+            $table->integer('parameter_id')->unsigned()->default(1);
+            $table->foreign('parameter_id')->references('id')->on('parameters');
         });
     }
 
